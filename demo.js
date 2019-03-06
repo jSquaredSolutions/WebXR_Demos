@@ -26,6 +26,21 @@ var server = http.createServer(function(request, response) {
                 }  
             });  
             break;  
+            case '/buzz.wav':  
+            fs.readFile(__dirname + path, function(error, data) {  
+                if (error) {  
+                    response.writeHead(404);  
+                    response.write(error);  
+                    response.end();  
+                } else {  
+                    response.writeHead(200, {  
+                        'Content-Type': 'text/html'  
+                    });  
+                    response.write(data);  
+                    response.end();  
+                }  
+            });  
+            break;  
         default:  
             response.writeHead(404);  
             response.write("opps this doesn't exist - 404");  

@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hello, WebVR! • A-Frame</title>
-    <meta name="description" content="Hello, WebVR! • A-Frame">
-    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-  </head>
-  <body>
-    <a-scene background="color: #0d3">
-      <a-sphere position="0 1 -1" radius=".05" color="#808" shadow></a-sphere>
-      <a-plane position="0 0 -4" rotation="-90 0 0" width="40" height="40" color="#000" shadow></a-plane>
-      <a-text id="posStats" font="kelsonsans" value="Puy de Sancy, France" width="6" position="-2.5 0.25 -1.5"
-      rotation="0 15 0"></a-text>
-      <a-sky color="#000"></a-sky>
-      <a-camera>
-          <a-cursor></a-cursor>
-          <!-- Or <a-entity cursor></a-entity> -->
-        </a-camera>
-    </a-scene>
 
-    <script>
-    
-    setInterval(function(){ 
+<head>
+  <meta charset="utf-8">
+  <title>Hello, WebVR! • A-Frame</title>
+  <meta name="description" content="Hello, WebVR! • A-Frame">
+  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+</head>
+
+<body>
+
+  <a-scene background="color: #0d3">   
+    <a-plane position="0 0 -4" rotation="-90 0 0" width="40" height="40" color="#000" shadow></a-plane>
+    <a-text id="posStats" font="kelsonsans" value="Puy de Sancy, France" width="6" position="-2.5 0.25 -1.5"
+      rotation="0 15 0"></a-text>
+    <a-sky color="#000"></a-sky>
+ 
+    <a-entity id="river" geometry="primitive: plane" material="color: blue"
+          position="100 0 0" sound="src: url(buzz.wav); autoplay: true"></a-entity>
+        <!-- <a-entity id="river1" geometry="primitive: plane" material="color: blue"
+          position="10 0 0" sound="src: url(buzz.wav); autoplay: true"></a-entity> -->
+    <a-camera>
+      <a-cursor></a-cursor>
+      <!-- Or <a-entity cursor></a-entity> -->
+    </a-camera>
+    <a-entity id='yzub' position="0 1 -1"></a-entity>
+  </a-scene>
+
+  <script>
+/*
+    setInterval(function () {
       gameP = navigator.getGamepads();
       gp = gameP[1];
-      
-      
-      document.getElementById('posStats').setAttribute('value',gp.pose.position[0].toString());
-    }, 3000);
-    
-    </script>
-  </body>
+
+
+      document.getElementById('posStats').setAttribute('value', "x: " + gp.pose.position[0].toString() + " y: " + gp.pose.position[1].toString() + " z: " + gp.pose.position[2].toString());
+    }, 100); */
+ 
+    posVal = 100;
+   /* 
+    setInterval(function () {
+      document.querySelector('#river').setAttribute('position',+posVal-1+' 0 0')
+    //  var entity = document.querySelector('[sound]');
+      console.log(entity1.position);
+      console.log(posVal);
+     // entity.components.sound.playSound();
+    }, 3000); */
+
+  </script>
+</body>
+
 </html>
