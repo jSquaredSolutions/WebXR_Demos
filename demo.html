@@ -5,6 +5,7 @@
     <title>Hello, WebVR! • A-Frame</title>
     <meta name="description" content="Hello, WebVR! • A-Frame">
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="vive.js"></script>
   </head>
   <body>
     <a-scene background="color: #0d3">
@@ -18,16 +19,5 @@
           <!-- Or <a-entity cursor></a-entity> -->
         </a-camera>
     </a-scene>
-
-    <script>
-    
-    setInterval(function(){ 
-      gameP = navigator.getGamepads();
-      console.log(gameP)
-      gp = gameP[0];
-      document.getElementById('posStats').setAttribute('value',gp.pose.position[0].toString());
-    }, 1000);
-    
-    </script>
   </body>
 </html>
