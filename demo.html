@@ -6,12 +6,22 @@
   <title>Hello, WebVR! • A-Frame</title>
   <meta name="description" content="Hello, WebVR! • A-Frame">
   <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+ <!--<script>
+    var context = new AudioContext();
+    var o = context.createOscillator();
+    var g = context.createGain();
+    g.gain.value = 0.1;
+    o.connect(g);
+    g.connect(context.destination);
+    // o.start();
+  </script> -->
 </head>
 
 <body>
   <a-scene sound="src:morn.wav; loop:true; autoplay:true; volume:.1;">
-    <a-entity geometry="primitive: sphere; radius: .5" material="color: #000" position="0 2 -1.5">
+   <a-sound src="src: url(Buzz.mp3)" autoplay="true" loop="true" position="-20 0 0" positional="true"></a-sound>
   </a-scene>
+  <script src="vive.js"></script>
 </body>
 
 <!--var entity = document.querySelector('[sound]');
