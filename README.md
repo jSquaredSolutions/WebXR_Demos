@@ -6,7 +6,7 @@ Run:
 
 node demo.js 
 
-Nav to localhost:8082 
+Nav to localhost:8082/demo.html
 
 This should start SteamVR auto-magically. To enter VR, click the goggles Icon
 
@@ -22,5 +22,9 @@ Now nav back to the desktop via steam (not Virtual Desktop). Now you can click t
 This does NOT work in Chrome. 
 
 Various demos and code around the WebXR API
+
+04/18/2020
+
+https://github.com/jSquaredSolutions/WebXR_Demos/wiki/WebXR-Workflow
 
 
