@@ -27,4 +27,13 @@ Various demos and code around the WebXR API
 
 https://github.com/jSquaredSolutions/WebXR_Demos/wiki/WebXR-Workflow
 
+core:a-assets:warn Asset loading timed out in   3000 ms browser.js:111:32
+
+Why? 
+
+Adding the file to the demo.js web server seems to fix this issue.
+
+Error: GLTFLoader: 2ms - timer ended
+
+Why?
 
