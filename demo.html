@@ -10,11 +10,16 @@
 
 <body>
   <a-scene background="color: #000">
-    <a-assets>
-      <a-asset-item id="tree" src="Mag.glb"></a-asset-item>
+   <a-assets>
+     <!-- <a-asset-item id="tree" src="Mag.glb"></a-asset-item> -->
+    <!--  <a-asset-item id="tree2" src="New.gltf"></a-asset-item> -->
+      <a-asset-item id="tree3" src="New4.glb"></a-asset-item>
     </a-assets>
-    <a-entity gltf-model="#tree"></a-entity>
-    <a-plane position="0 0 -4" rotation="-90 0 0" width="40" height="40" color="#BEBEBE" shadow></a-plane>
+    <a-light color="white" position="-1 1 0"></a-light>
+    <a-entity gltf-model="#tree3" scale='.01 .01 .01' position=".6 1.7 -0.8"></a-entity>
+  <!--  <a-entity gltf-model="#tree3" scale='.01 .01 .01' position=".6 1.7 -0.2"></a-entity> -->
+    <a-sphere position="1 1 1" radius=".1" color="#EF2D5E"></a-sphere>
+    <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" color="#BEBEBE" shadow></a-plane>
   </a-scene>
 </body>
 

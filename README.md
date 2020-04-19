@@ -35,5 +35,28 @@ Adding the file to the demo.js web server seems to fix this issue.
 
 Error: GLTFLoader: 2ms - timer ended
 
-Why?
+Why? Don't know yeah as this error does not seem to prevent the GLTF from being seen in the scene
 
+04/19/2020
+
+Why is it that the shere exported as .glb from TinderCad has such a different position that the naive Sphere? 
+
+I think this is because when I exported in TinkerCad I exported the whole scene and not just the shape. I also notice when viewing in firefox proper that the scene is way brigther. 
+
+components:gltf-model:warn THREE.GLTFLoader: Failed to load buffer "2020.04.19-14.32.22.bin". 
+
+I need the 2020.04.19-14.32.22.bin to the web server list and this error was resolved.
+
+I compared side by side the .gltf and the .glb and I can not tell a difference. The color from Sculpt carried over!! Nice, next I'll try a multicolor object and see if each color carries over. 
+
+After adding a light I can see the .glb ang .gltf. Some of the edges are smooth after the export. But for the most part both look identical with high detail. 
+
+Something is still very strange about the scaling. The .glb is huge .1 and average size at .001
+
+I zoomed out .01x in SculptVR and save thinking that might being the scale closer to normal. 
+
+I couldn't get that scaled down model to work. 
+
+core:a-assets:warn Asset loading timed out in   3000 ms
+
+I'll try cranking up the timeout threshold
