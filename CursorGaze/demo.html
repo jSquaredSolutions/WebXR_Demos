@@ -18,35 +18,30 @@
         });
       }
     });
+    AFRAME.registerComponent('cur-lis', {
+      init: function () {
+        this.el.addEventListener('click', function (evt) {
+          rig.setAttribute('position', '0 1 0');
+        });
+      }
+    });
   </script>
 </head>
 
 <body>
   <a-scene background="color: #000">
-    <a-entity camera look-controls>
-      <a-entity cursor="fuse: true; fuseTimeout: 1000" position="0 0 -1"
+    <a-entity id="rig" position="25 2 0">
+      <a-entity id="camera" camera look-controls>
+        <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1"
         geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.03" material="color: white; shader: flat">
+      </a-entity>
       </a-entity>
     </a-entity>
     <a-entity id="box" cursor-listener geometry="primitive: box" material="color: red" position='3 0 0'></a-entity>
     <a-entity id="box" cursor-listener geometry="primitive: box" material="color: blue" position='-3 0 0'></a-entity>
-    <a-entity id="box" cursor-listener geometry="primitive: box" material="color: green" position='0 0 9'></a-entity>
-    <a-entity id="box" cursor-listener geometry="primitive: box" material="color: yellow" position='0 0 -3'></a-entity>
+    <a-entity id="box" cursor-listener geometry="primitive: box" material="color: green" position='0 2 3'></a-entity>
+    <a-entity id="box" cur-lis geometry="primitive: box" material="color: yellow" position='0 0 -3'></a-entity>
   </a-scene>
-
-  <script>
-    AFRAME.registerComponent('cursor-listener', {
-      init: function () {
-        var lastIndex = -1;
-        var COLORS = ['red', 'green', 'blue'];
-        this.el.addEventListener('click', function (evt) {
-          lastIndex = (lastIndex + 1) % COLORS.length;
-          this.setAttribute('material', 'color', COLORS[lastIndex]);
-          console.log('I was clicked at: ', evt.detail.intersection.point);
-        });
-      }
-    });
-  </script>
 
 </body>
 
