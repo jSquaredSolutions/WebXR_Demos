@@ -21,7 +21,7 @@
     AFRAME.registerComponent('cur-lis', {
       init: function () {
         this.el.addEventListener('click', function (evt) {
-          rig.setAttribute('position', '0 1 0');
+          rig.setAttribute('position', this.getAttribute('position'));
         });
       }
     });
@@ -30,17 +30,19 @@
 
 <body>
   <a-scene background="color: #000">
-    <a-entity id="rig" position="25 2 0">
+    <a-entity id="rig" position="0 0 0">
       <a-entity id="camera" camera look-controls>
         <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1"
-        geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.03" material="color: white; shader: flat">
-      </a-entity>
+          geometry="primitive: ring; radiusInner: 0.009; radiusOuter: 0.02" material="color: white; shader: flat">
+        </a-entity>
       </a-entity>
     </a-entity>
-    <a-entity id="box" cursor-listener geometry="primitive: box" material="color: red" position='3 0 0'></a-entity>
-    <a-entity id="box" cursor-listener geometry="primitive: box" material="color: blue" position='-3 0 0'></a-entity>
-    <a-entity id="box" cursor-listener geometry="primitive: box" material="color: green" position='0 2 3'></a-entity>
-    <a-entity id="box" cur-lis geometry="primitive: box" material="color: yellow" position='0 0 -3'></a-entity>
+    <a-sphere cur-lis color="yellow" radius=".9" position='18 4 0'></a-sphere>
+    <a-sphere cur-lis color="green" radius=".9" position='-18 4 0'></a-sphere>
+    <a-sphere cur-lis color="blue" radius=".9" position='0 4 18'></a-sphere>
+    <a-sphere cur-lis color="red" radius=".9" position='0 4 -18'></a-sphere>
+    <a-plane position="0 0 0" rotation="-90 0 0" width="1000" height="1000" color="#BEBEBE">
+    </a-plane>
   </a-scene>
 
 </body>
