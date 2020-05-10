@@ -10,10 +10,8 @@
 
 <body>
   <a-scene background="color: #000">
-    <a-assets>
-      <a-asset-item id="mag-glb" src="Mag.glb"></a-asset-item>
-    </a-assets>
-    <a-entity gltf-model="url(./Mag.glb)"></a-entity>
+    <a-gltf-model src="Mag.glb" position='2 1 0' scale='.1 .1 .1'></a-gltf-model>
+    <a-plane position="0 0 0" rotation="-90 0 0" width='40' height='40' color="#BEBEBE"></a-plane>
   </a-scene>
 </body>
 

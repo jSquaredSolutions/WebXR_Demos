@@ -26,36 +26,23 @@ var server = http.createServer(function (request, response) {
                 }
             });
             break;
-                case '/2020.04.26-12.43.31.bin':
-                    fs.readFile(__dirname + path, function (error, data) {
-                        if (error) {
-                            response.writeHead(404);
-                            response.write(error);
-                            response.end();
-                        } else {
-                            response.writeHead(200, {
-                                'Content-Type': 'text/html'
-                            });
-                            response.write(data);
-                            response.end();
-                        }
-                    });
-                    break;
-                    case '/2020.04.26-12.43.31.gltf':
-                        fs.readFile(__dirname + path, function (error, data) {
-                            if (error) {
-                                response.writeHead(404);
-                                response.write(error);
-                                response.end();
-                            } else {
-                                response.writeHead(200, {
-                                    'Content-Type': 'text/html'
-                                });
-                                response.write(data);
-                                response.end();
-                            }
+            case '/sculptVR_text.glb':
+                fs.readFile(__dirname + path, function (error, data) {
+                    if (error) {
+                        response.writeHead(404);
+                        response.write(error);
+                        response.end();
+                    } else {
+                        response.writeHead(200, {
+                            'Content-Type': 'text/html'
                         });
-                        break;
+                        response.write(data);
+                        response.end();
+                    }
+                });
+                break;
+     
+       
         default:
             response.writeHead(404);
             response.write("opps this doesn't exist - 404");
