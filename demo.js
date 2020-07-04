@@ -164,22 +164,37 @@ var server = https.createServer({
                 }
             });
             break;
-          case '/Assets/heli_1_edited.wav':
-                    fs.readFile(__dirname + path, function (error, data) {
-                        if (error) {
-                            response.writeHead(404);
-                            response.write(error);
-                            response.end();
-                        } else {
-                            response.writeHead(200, {
-                                'Content-Type': 'text/html'
-                            });
-                            response.write(data);
-                            response.end();
-                        }
+        case '/Assets/heli_1_edited.wav':
+            fs.readFile(__dirname + path, function (error, data) {
+                if (error) {
+                    response.writeHead(404);
+                    response.write(error);
+                    response.end();
+                } else {
+                    response.writeHead(200, {
+                        'Content-Type': 'text/html'
                     });
-                    break;
-            default:
+                    response.write(data);
+                    response.end();
+                }
+            });
+            break;
+        case '/NavMesh.md':
+            fs.readFile(__dirname + path, function (error, data) {
+                if (error) {
+                    response.writeHead(404);
+                    response.write(error);
+                    response.end();
+                } else {
+                    response.writeHead(200, {
+                        'Content-Type': 'text/html'
+                    });
+                    response.write(data);
+                    response.end();
+                }
+            });
+            break;
+        default:
             response.writeHead(404);
             response.write("opps this doesn't exist - 404");
             response.end();
