@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Most Basic Super-Hands Example</title>
-  <meta charset="utf-8">
-  <!-- 1.0.4 version will not work -->
-  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-  <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.2/dist/aframe-extras.min.js"></script>
-  <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+    <meta charset="utf-8">
+    <title>Nav Mesh plus Move controls</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
 </head>
 
 <body>
-  <a-scene>
-    <a-assets></a-assets>
-    <a-entity>
-      <a-camera></a-camera>
-      <a-entity sphere-collider="objects: a-box" super-hands hand-controls="left"></a-entity>
-      <a-entity sphere-collider="objects: a-box" super-hands hand-controls="right"></a-entity>
-    </a-entity>
-    <!-- hover & drag-drop won't have any obvious effect without some additional event handlers or components. See the examples page for more -->
-    <a-box hoverable grabbable stretchable draggable dropppable color="blue" position="0 0 -1"></a-box>
-  </a-scene>
+    <a-scene background="color: #000" animation-timeline__1="timeline:#heliTimeline;loop:true">
+        <a-assets>
+        </a-assets>
+        <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="0 1.6 0">
+            <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
+            </a-entity>
+            <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+            <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+        </a-entity>
+        <a-gltf-model src="/Assets/CutPlane.glb" position="0 1 0" rotation="5 0 0" scale="2 2 2" nav-mesh>
+        </a-gltf-model>
+    </a-scene>
 </body>
+
 </html>

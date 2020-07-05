@@ -7,7 +7,11 @@ So I reviewed these two articles:
 1 https://ada.is/blog/2018/02/12/how-i-built-a-game-in-a-week/
 2 https://www.donmccurdy.com/2017/08/20/creating-a-nav-mesh-for-a-webvr-scene/
 
+These article both reference a Navigation mesh feature in an older version of Blender.
+I couldn't figure out how to implement this in the new version of Blender. 
+
 I set out with two goals in mind.
 
 1. I want to take a plane and make a nav mesh
 2. I want to figure out how to walk uphill
+
