@@ -179,6 +179,21 @@ var server = https.createServer({
                 }
             });
             break;
+        case '/Assets/baboon-blue.glb':
+            fs.readFile(__dirname + path, function (error, data) {
+                if (error) {
+                    response.writeHead(404);
+                    response.write(error);
+                    response.end();
+                } else {
+                    response.writeHead(200, {
+                        'Content-Type': 'text/html'
+                    });
+                    response.write(data);
+                    response.end();
+                }
+            });
+            break;
         case '/NavMesh.md':
             fs.readFile(__dirname + path, function (error, data) {
                 if (error) {

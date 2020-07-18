@@ -1,27 +1,46 @@
-<!DOCTYPE html>
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <title>Nav Mesh plus Move controls</title>
-    <meta name="description" content="Hello, WebVR! • A-Frame">
-    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <meta charset="utf-8">
+  <title>A-Frame physics</title>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.0/dist/aframe-extras.min.js"></script>
+  <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js">
+  </script>
+  <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
+  <script src="https://unpkg.com/aframe-physics-extras@0.1.2/dist/aframe-physics-extras.min.js"></script>
+  </script>
 </head>
 
 <body>
-    <a-scene background="color: #000" animation-timeline__1="timeline:#heliTimeline;loop:true">
-        <a-assets>
-        </a-assets>
-        <a-entity id="rig" movement-controls="constrainToNavMesh: true" position="0 1.6 0">
-            <a-entity camera position="0 1.6 0" look-controls="pointerLockEnabled: true">
-            </a-entity>
-            <a-entity id="leftHand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
-            <a-entity id="rightHand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
-        </a-entity>
-        <a-gltf-model src="/Assets/CutPlane.glb" position="0 1 0" rotation="5 0 0" scale="2 2 2" nav-mesh>
-        </a-gltf-model>
-    </a-scene>
+  <a-scene background="color: white" physics="gravity: 0">
+    <a-assets timeout="80000">
+      <a-mixin id="obj" stretchable
+        grabbable scale=".5 .5 .5" rotation="0 0 0"></a-mixin>
+      <a-mixin id="cube" position="0 0 0" geometry="primitive: box" scale=".1 .1 .1"
+        collision-filter="collisionForces: false;" material=" color: red"></a-mixin>
+      <!-- collision-filter="collisionForces: false;" use this if you want your hand to knock over the object -->
+      <a-mixin id="hand" physics-collider static-body="shape: box" collision-filter="collisionForces: false;"
+        super-hands="colliderEvent: collisions;
+                             colliderEventProperty: els;
+                             colliderEndEvent: collisions;
+                             colliderEndEventProperty: clearedEls;
+                             grabStartButtons: trackpaddown, triggerdown, gripclose, gripdown, thumbstickdown, mousedown; 
+                             grabEndButtons: trackpadup, triggerup, gripopen, gripup, thumbstickup, mouseup"></a-mixin>
+    </a-assets>
+    <a-entity id="rig">
+      <a-camera id="camera"></a-camera>
+      <a-entity mixin="hand" hand-controls="hand: left; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+      <a-entity mixin="hand" hand-controls="hand: right; handModelStyle: lowPoly; color: #ffcccc"></a-entity>
+    </a-entity>
+
+    <a-entity sound="src: url(/Assets/heli_1_edited.wav); autoplay: true;loop:true" id="thisbab" dynamic-body="shape: box; mass: 2" position=".1 1.6 -.5" scale="2 2 2" mixin="obj"
+      gltf-model="/Assets/baboon-blue.glb">
+      <a-entity geometry="primitive: box" material=" color: red"scale=".1 .1 .1" collision-filter="collisionForces: false;"></a-entity>
+    </a-entity>
+    <a-entity static-body="shape: box;" scale="2 2 2" geometry="primitive: box;height:.2;  width:3;"></a-entity>
+  </a-scene>
 </body>
 
 </html>

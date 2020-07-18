@@ -60,3 +60,7 @@ I couldn't get that scaled down model to work.
 core:a-assets:warn Asset loading timed out in   3000 ms
 
 I'll try cranking up the timeout threshold
+
+   <a-entity geometry="primitive: box" material="color: red" position="0 2 2" id="baboon-blue-grab"
+        class="clickable center-obj-zone" mixin="obj"></a-entity>
+      <!-- dynamic-body="shape: box; mass: 2" <a-entity scale="1 1 1" geometry="primitive: box" material="color: red" position="0 0 1"></a-entity> -->
