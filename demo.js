@@ -29,6 +29,36 @@ var server = https.createServer({
                 }
             });
             break;
+          case '/Assets/scene.gltf':
+                    fs.readFile(__dirname + path, function (error, data) {
+                        if (error) {
+                            response.writeHead(404);
+                            response.write(error);
+                            response.end();
+                        } else {
+                            response.writeHead(200, {
+                                'Content-Type': 'text/html'
+                            });
+                            response.write(data);
+                            response.end();
+                        }
+                    });
+                    break;
+                    case '/Assets/scene.glb':
+                        fs.readFile(__dirname + path, function (error, data) {
+                            if (error) {
+                                response.writeHead(404);
+                                response.write(error);
+                                response.end();
+                            } else {
+                                response.writeHead(200, {
+                                    'Content-Type': 'text/html'
+                                });
+                                response.write(data);
+                                response.end();
+                            }
+                        });
+                        break;
         case '/Assets/tinker.obj':
             fs.readFile(__dirname + path, function (error, data) {
                 if (error) {
